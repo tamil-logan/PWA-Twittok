@@ -12,6 +12,8 @@ import Grid from "@material-ui/core/Grid";
 import axios from "axios";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
+import auth from "./../login/auth-helper";
+
 
 const theme = createMuiTheme({
   typography: {
@@ -22,9 +24,6 @@ const theme = createMuiTheme({
 
 const useStyles = makeStyles((theme) => ({
   title: {
-    padding: `${theme.spacing(0)}px ${theme.spacing(2.5)}px ${theme.spacing(
-      2
-    )}px`,
     color: theme.palette.openTitle,
     fontSize: "2em",
     fontWeight: "bold",
@@ -44,13 +43,11 @@ const useStyles = makeStyles((theme) => ({
   avatar: {
     display: "flex",
   },
-  subtitle:{
+  subtitle: {
     color: theme.palette.openTitle,
     fontSize: "2em",
     fontWeight: "bold",
-    textAlign:"center",
-    marginLeft:"-13rem"
-  }  
+  },
 }));
 export default function Newsfeed() {
   const classes = useStyles();
@@ -77,34 +74,45 @@ export default function Newsfeed() {
     fetchAllPosts();
   }, []);
 
+  const jwt = auth.isAuthenticated()
+
+
   return (
     <div>
-      <Grid container>
-        <Grid item xs={9}>
+      <Grid container spacing={4} justify="flex-end">
+      <Grid item sm={6}>
           <Typography
             type="title"
             className={classes.title}
             style={{ color: "white" }}
           >
-            Post
+           What's on your mind?
           </Typography>
 
           <NewPost fetchAllPosts={fetchAllPosts} />
-        </Grid>
+        <Typography
+          type="title"
+          className={classes.subtitle}
+          style={{ color: "white" }}
+        >
+        Posts
+        </Typography>
 
-        <Grid item xs={3}>
+        <AllPosts posts={posts} setPosts={setPosts} />
+        </Grid>
+        <Grid item sm={3}>
           <div className={classes.avatar}>
             <Avatar
-              alt={localStorage.getItem("username")}
+              alt={jwt.username}
               src="/static/images/avatar/1.jpg"
               style={{ height: "284px", width: "281px", fontSize: "80px" }}
             />
           </div>
           <ThemeProvider theme={theme}>
             <p className={classes.username}>
-              {localStorage.getItem("username")}
+              {jwt.username}
             </p>
-            <p className={classes.email}>{localStorage.getItem("email")}</p>
+            <p className={classes.email}>{jwt.email}</p>
           </ThemeProvider>
           <Button
             className="float"
@@ -124,7 +132,6 @@ export default function Newsfeed() {
           </Button>
 
           <Button
-            className="float"
             color="inherit"
             style={{
               color: "white",
@@ -141,30 +148,9 @@ export default function Newsfeed() {
             Edit Profile
           </Button>
         </Grid>
-        </Grid>
-        <Typography
-            type="title"
-            className={classes.subtitle}
-            style={{ color: "white"}}
-          >
-            All Posts
-          </Typography>
-
-        <Grid
-        container
-        spacing={0}
-        direction="column"
-        alignItems="center"
-        justify="center"
-        style={{ minHeight: '100vh' }}
-        >
-
-          <Grid item xs={3}>
-          <AllPosts posts={posts} setPosts={setPosts} />
-        </Grid>
-
-        </Grid>
-     
+       
+      </Grid> 
+    
     </div>
   );
 }

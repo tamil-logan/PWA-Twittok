@@ -19,13 +19,11 @@ const useStyles = makeStyles((theme) => ({
   root: {
     float: "left",
     width: 600,
-    marginLeft: "1rem",
-    marginTop: "-1rem",
   },
   card: {
-    minWidth: 300,
-    maxHeight: 300,
-    minHeight: 300,
+    maxHeight: 103,
+    minHeight: 103,
+    maxWidth:560,
     marginBottom: theme.spacing(3),
     backgroundColor: "rgba(65, 150, 136, 0.09)",
     boxShadow: "none",
@@ -37,19 +35,11 @@ const useStyles = makeStyles((theme) => ({
   },
   photoButton: {
     height: 30,
-    marginBottom:0,
-    paddingBottom:0,
-    top:0,
-    right:0,
-    left:0,
-    bottom:0
   },
   input: {
     display: "none",
   },
   textField: {
-    marginLeft: theme.spacing(2),
-    marginRight: theme.spacing(2),
     width: "90%",
     backgroundColor: "#757575",
   },
@@ -108,7 +98,7 @@ export default function NewPost(props) {
       <Card className={classes.card} style={{ backgroundColor: "#757575" }}>
         <CardContent className={classes.cardContent}>
           <TextField
-            placeholder="What's on your mind?"
+            placeholder="Description to your post."
             multiline
             InputProps={{
               className: classes.multilineColor,
@@ -181,7 +171,7 @@ export default function NewPost(props) {
             border: "3px solid #2676E1",
             borderRadius: "5px",
             backgroundColor: "#2676E1",
-            marginLeft:'31rem',
+            marginLeft:'28.5rem',
             marginTop:'-2.8rem'
           }}
           color="secondary"

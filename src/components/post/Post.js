@@ -15,9 +15,6 @@ const useStyles = makeStyles((theme) => ({
     margin: 30,
   },
   title: {
-    padding: `${theme.spacing(0)}px ${theme.spacing(2.5)}px ${theme.spacing(
-      2
-    )}px`,
     color: theme.palette.openTitle,
     fontSize: "2em",
     fontWeight: "bold",
@@ -74,18 +71,18 @@ export default function Home({history}) {
       )}
       {postPage && (
         <div>
-          <Grid container spacing={10}>
-            <Grid item xs={9}>
+          <Grid container spacing={4} justify="flex-end">
+            <Grid item sm={6}>
               <Typography
                 type="title"
                 className={classes.title}
                 style={{ color: "white" }}
-              >Post
+              >My Posts
               </Typography>
               <PostTemp posts={posts} setPosts={setPosts}/>
             </Grid>
 
-            <Grid item xs={3}>
+            <Grid item sm={3}>
               <Avatar
                 alt={localStorage.getItem("username")}
                 src="/static/images/avatar/1.jpg"

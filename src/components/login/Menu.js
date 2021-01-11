@@ -106,23 +106,6 @@ const Menu = withRouter(({ history }) => (
             className="float"
             color="inherit"
             style={{
-              color: "white",
-              fontWeight: "bold",
-              backgroundColor: "transparent",
-              marginLeft: "1rem",
-              border: "2px solid #FFFFFF",
-              borderRadius: "20px",
-              maxHeight: "2rem",
-            }}
-            component={Link}
-            to="/changepass"
-          >
-            Change Password
-          </Button>
-          <Button
-            className="float"
-            color="inherit"
-            style={{
               color: "black",
               fontWeight: "bold",
               backgroundColor: "white",

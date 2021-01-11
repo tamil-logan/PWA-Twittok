@@ -13,11 +13,11 @@ import Avatar from "@material-ui/core/Avatar";
 const useStyles = makeStyles((theme) => ({
   media: {
     height: 315,
+    width: 560,
   },
-  cardHeader:{
-    marginLeft:"-1rem"
-  }
- 
+  cardHeader: {
+    marginLeft: "-1rem",
+  },
 }));
 
 function PostItem(props) {
@@ -47,7 +47,9 @@ function PostItem(props) {
   }, []);
 
   function isLikedByTheUser() {
+    console.log(likes)
     return likes.find((e) => e.user_id === jwt.id) ? true : false;
+
   }
   //deletePost
   const url = "http://localhost:5000/deletePost";
@@ -91,6 +93,23 @@ function PostItem(props) {
       })
       .catch(console.log);
   };
+  const dislike = () => {
+    fetch("http://localhost:5000/likePost", {
+      method: "PUT",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: `${localStorage.getItem("token")}`,
+      },
+      body: JSON.stringify({ id: post.id, like: 0 }),
+    })
+      .then((e) => e.json())
+      .then((res) => {
+        fetchAllLikes();
+        console.log(res);
+      })
+      .catch(console.log);
+  };
 
   function getFilteredLikes() {
     let temp = [];
@@ -112,17 +131,19 @@ function PostItem(props) {
       <img className={classes.media} src={Picture} alt="post" />
       <h5 className="post_content ">{post.content} </h5>
 
-      <IconButton onClick={remove}>
+      <IconButton onClick={remove} style={{ color: "white" }}>
         <DeleteIcon />
       </IconButton>
 
       <IconButton
-        onClick={like}
+        onClick={isLikedByTheUser() ? dislike : like}
         className={classes.button}
         aria-label="Like"
         color="secondary"
       >
         {isLikedByTheUser() ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+
+
       </IconButton>
       {getFilteredLikes()
         .map((e) => e.username)
