@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
     }
   }, 
   cardHeader: {
-    marginLeft: "2rem",
+    marginLeft: "-1.5rem",
     [theme.breakpoints.down("sm")]: {
       display: "flex",
       float: "left",

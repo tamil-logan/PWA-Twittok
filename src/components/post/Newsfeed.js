@@ -149,8 +149,8 @@ const useStyles = makeStyles((theme) => ({
       marginTop: "-10px !important",
       fontWeight: "100",
       marginLeft: "210px",
-      maxHeight: "3rem",
-      minWidth:"4rem"
+      maxHeight: "4rem",
+      minWidth:"6rem"
     },
   },
 }));
