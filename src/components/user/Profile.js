@@ -19,6 +19,32 @@ const useStyles = makeStyles((theme) => ({
     right: 0,
     left: 0,
     bottom: 2,
+    // color: "black",
+    // border: "3px solid white",
+    // borderRadius: "5px",
+    // backgroundColor: "white",
+    // minHeight: "2.2rem",
+    // minWidth: "2.2rem",
+    //marginRight:"-3rem",
+    [theme.breakpoints.down('sm')]: {
+   
+     marginLeft: "2.5rem",
+    //  paddingBottom: 0,
+    //  top: 0,
+    //  right: 0,
+    //  left: 0,
+     //bottom: 2,
+     height: 10,
+     width:20,
+    //marginBottom: 10,minHeight: "2.2rem",
+    minHeight: ".4rem",
+    minWidth: ".4rem",
+    marginTop: "20px"
+    
+      
+      
+},
+
   },
   input: {
     display: "none",
@@ -26,13 +52,123 @@ const useStyles = makeStyles((theme) => ({
   textField: {
     marginRight: theme.spacing(1),
     width: 300,
+    margin: "normal",
+    [theme.breakpoints.down('sm')]: {
+
+    
+      width: 250,
+          marginTop: "7px !important",
+          
+           marginLeft:"-100px",
+           fontWeight: "normal",
+      },
+    
+  
+       
+
+
   },
-  submit: {
+  submits: {
     margin: theme.spacing(3),
-  },
-  title: {
     color: "white",
+    backgroundColor: "transparent",
+    minHeight: "2.2rem",
+    minWidth: "2.2rem",
+    fontWeight: "bold",
+    boxShadow: "none",
+    [theme.breakpoints.down('sm')]: {
+   
+      fontWeight: "normal",
+
+
+    //display:"none",
+     marginTop: "-35px !important",
+     marginLeft: "100px",
+    
+      
+},
   },
+  titles: {
+    color: "white",
+              fontWeight: "bold",
+              fontSize:"35px",
+    
+    [theme.breakpoints.down('sm')]: {
+   
+              fontWeight: "normal",
+              fontSize:"25px",
+      
+      
+             marginTop: "15px !important",
+             marginLeft: "-65px",
+            
+              fontWeight: "normal",
+              
+  },
+},
+titless: {
+  color: "white",
+  fontWeight: "bold",
+  marginTop:"2rem",
+  
+  [theme.breakpoints.down('sm')]: {
+
+    
+    
+           marginTop: "17rem !important",
+           
+          marginLeft:"-100px",
+            fontWeight: "normal",
+            
+},
+},
+titlesss: {
+  color: "white",
+  fontWeight: "bold",
+  marginTop:"2rem",
+  
+  [theme.breakpoints.down('sm')]: {
+
+    
+    
+           //marginTop: "19rem !important",
+           
+          marginLeft:"-100px",
+            fontWeight: "normal",
+            
+},
+},
+titlessss: {
+  color: "white",
+  fontWeight: "bold",
+  marginTop:"2rem",
+  
+  [theme.breakpoints.down('sm')]: {
+
+    
+    
+           //marginTop: "19rem !important",
+           
+          marginLeft:"-100px",
+            fontWeight: "normal",
+            
+},
+},
+// textFieldss:{
+//   marginRight: theme.spacing(1),
+//     width: 300,
+//     margin: "normal",
+
+//   [theme.breakpoints.down('sm')]: {
+
+    
+    
+//     marginTop: "19rem !important",
+    
+//    marginLeft:"-80px",
+//      fontWeight: "normal",
+// },
+// },
   root: {
     marginLeft: "2rem",
   },
@@ -46,6 +182,51 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "30px",
     marginBottom: "3rem",
   },
+  avatarss: {
+    height: "284px", 
+    width: "281px", 
+    fontSize: "80px",
+    [theme.breakpoints.down('sm')]: {
+      // display: "flex",
+      // float: "center",
+     //marginBottom: "-100px !important",
+      height: "150px",
+      
+      width: "150px", 
+      
+      fontSize: "30px",
+      marginTop: "70px !important",
+      marginLeft: "70px",
+    },
+
+  },
+  floatsss:{
+    color: "#2676E1",
+    fontWeight: "bold",
+    backgroundColor: "transparent",
+    marginLeft: "7rem",
+    maxHeight: "2rem",
+    fontSize: "1rem",
+    [theme.breakpoints.down('sm')]: {
+      color: "#2676E1",
+      fontWeight: "normal",
+      backgroundColor: "transparent",
+      marginLeft: "6rem",
+      maxHeight: "2rem",
+      fontSize: "1rem",
+    },
+
+
+  },
+  submitssss:{
+    marginLeft: "14.5rem",
+              backgroundColor: "#2676E1",
+              borderRadius:"23px",
+              [theme.breakpoints.down('sm')]: {
+                marginLeft: "5.5rem",
+              },
+
+  }
 }));
 
 export default function Profile() {
@@ -119,9 +300,10 @@ export default function Profile() {
       <Grid container spacing={10}>
         <Grid item xs={4}>
           <Avatar
+          className={classes.avatarss}
             alt={localStorage.getItem("username")}
             src="/static/images/avatar/1.jpg"
-            style={{ height: "284px", width: "281px", fontSize: "80px" }}
+            //style={{ height: "284px", width: "281px", fontSize: "80px" }}
           />
           <input
             accept="image/*"
@@ -152,7 +334,7 @@ export default function Profile() {
           <Button
             color="primary"
             variant="contained"
-            className={classes.submit}
+            className={classes.submits}
             onClick={uploadPicture}
             style={{
               color: "white",
@@ -170,24 +352,24 @@ export default function Profile() {
         <Grid item xs={8}>
           <Typography
             variant="h6"
-            className={classes.title}
-            style={{
-              color: "white",
-              fontWeight: "bold",
-              fontSize:"35px"
-            }}
+            className={classes.titles}
+            // style={{
+            //   color: "white",
+            //   fontWeight: "bold",
+            //   fontSize:"35px"
+            // }}
           >
             Profile Settings
           </Typography>
 
           <Typography
             variant="h6"
-            className={classes.title}
-            style={{
-              color: "white",
-              fontWeight: "bold",
-              marginTop:"2rem"
-            }}
+            className={classes.titless}
+            // style={{
+            //   color: "white",
+            //   fontWeight: "bold",
+            //   marginTop:"2rem"
+            // }}
           >
             Name
           </Typography>
@@ -197,7 +379,7 @@ export default function Profile() {
             rows="2"
             value={values.name}
             className={classes.textField}
-            margin="normal"
+            //margin="normal"
             onChange={handleChange("name")}
             InputProps={{
               className: classes.multilineColor,
@@ -209,11 +391,11 @@ export default function Profile() {
           <br />
           <Typography
             variant="h6"
-            className={classes.title}
-            style={{
-              color: "white",
-              fontWeight: "bold",
-            }}
+            className={classes.titlesss}
+            // style={{
+            //   color: "white",
+            //   fontWeight: "bold",
+            // }}
           >
             User Name
           </Typography>
@@ -235,11 +417,11 @@ export default function Profile() {
           <br />
           <Typography
             variant="h6"
-            className={classes.title}
-            style={{
-              color: "white",
-              fontWeight: "bold",
-            }}
+            className={classes.titlessss}
+            // style={{
+            //   color: "white",
+            //   fontWeight: "bold",
+            // }}
           >
             Email Address
           </Typography>
@@ -260,16 +442,16 @@ export default function Profile() {
           />
           <br />
           <Button
-            className="float"
+            className="floatsss"
             color="inherit"
-            style={{
-              color: "#2676E1",
-              fontWeight: "bold",
-              backgroundColor: "transparent",
-              marginLeft: "7rem",
-              maxHeight: "2rem",
-              fontSize: "1rem",
-            }}
+             style={{
+               color: "#2676E1",
+            //   fontWeight: "bold",
+            //   backgroundColor: "transparent",
+              //  marginLeft: "7rem",
+              //  maxHeight: "2rem",
+            //   fontSize: "1rem",
+             }}
             component={Link}
             to="/changepass"
           >
@@ -280,12 +462,12 @@ export default function Profile() {
             color="primary"
             variant="contained"
             onClick={clickSubmit}
-            className={classes.submit}
-            style={{
-              marginLeft: "14.5rem",
-              backgroundColor: "#2676E1",
-              borderRadius:"23px",
-            }}
+            className={classes.submitssss}
+            // style={{
+            //   marginLeft: "14.5rem",
+            //   backgroundColor: "#2676E1",
+            //   borderRadius:"23px",
+            // }}
           >
             Save
           </Button>

@@ -19,6 +19,17 @@ const useStyles = makeStyles((theme) => ({
   root: {
     float: "left",
     width: 600,
+    marginLeft: "1rem",
+    marginTop: "-1rem",
+    // [theme.breakpoints.down('sm')]: {
+    //  width:250,
+    //  marginLeft:"17rem !important",
+    //  marginRight: "2rem !important",
+    //  marginTop: "200px",
+    //  padding: "0 0",
+    //  //position: "absolute",
+    //},
+
   },
   card: {
     maxHeight: 103,
@@ -27,6 +38,14 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(3),
     backgroundColor: "rgba(65, 150, 136, 0.09)",
     boxShadow: "none",
+    [theme.breakpoints.down('sm')]: {
+      width:250,
+      marginLeft:"-5rem !important",
+     marginRight: "2rem !important",
+       marginTop: "2rem !important",
+        padding: "0 0",
+      //position: "absolute", 
+    }
   },
   cardContent: {
     backgroundColor: "#757575",
@@ -34,14 +53,84 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: 0,
   },
   photoButton: {
+    marginLeft: "-.8rem",
     height: 30,
+    marginBottom:0,
+    paddingBottom:0,
+    top:0,
+    right:0,
+    left:0,
+    bottom:0,
+    [theme.breakpoints.down('sm')]: {
+      width:250,
+      marginLeft:"-5rem !important",
+      marginRight: "2rem !important",
+      marginTop: "40px !important",
+      padding: "0 0",
+      //position: "absolute", 
+    }
+
   },
+  photoButtons: {
+    
+    height: 30,
+    marginBottom:0,
+    paddingBottom:0,
+    top:0,
+    right:0,
+    left:0,
+    bottom:0,
+    [theme.breakpoints.down('sm')]: {
+      width:250,
+      marginLeft:"-1rem !important",
+      marginRight: "3rem !important",
+      marginTop: "-30px !important",
+      padding: "0 0",
+      height: 30,
+      marginBottom:"1rem",
+      paddingBottom:"1rem",
+      top:0,
+      right:0,
+      left:0,
+      bottom:"1rem",
+      //position: "absolute", 
+    }
+
+  },
+  // photoButtonss: {
+  //   color: "white",
+  //   border: "3px solid #2676E1",
+  //   borderRadius: "5px",
+  //   backgroundColor: "#2676E1",
+  //   marginLeft:'28.5rem',
+  //   marginTop:'-2.8rem',
+
+  //   [theme.breakpoints.down('sm')]: {
+  //     width:100,
+  //     marginLeft:"25rem !important",
+  //     marginRight: "3rem !important",
+  //     marginTop: "-30px !important",
+  //     padding: "0 0",
+  //     height: 30,
+  //     marginBottom:"1rem",
+  //     paddingBottom:"1rem",
+  //     top:0,
+  //     right:0,
+  //     left:0,
+  //     bottom:"1rem",
+  //     //position: "absolute", 
+  //   }
+  // },
+
   input: {
     display: "none",
   },
   textField: {
+    marginLeft: theme.spacing(2),
+    marginRight: theme.spacing(2),
     width: "90%",
     backgroundColor: "#757575",
+   
   },
   multilineColor: {
     color: "white",
@@ -49,6 +138,22 @@ const useStyles = makeStyles((theme) => ({
   },
   submit: {
     margin: theme.spacing(3),
+    [theme.breakpoints.down('sm')]: {
+      textAlign: "center !important",
+      width:60,
+      marginLeft:"6rem !important",
+      marginRight: "7rem !important",
+      marginTop: "-76px !important",
+      padding: "0 0",
+      height: 45,
+      marginBottom:0,
+      // paddingBottom:0,
+      // top:0,
+      // paddingRight:"1px",
+      // left:0,
+      // bottom:"1rem",
+      // //position: "absolute", 
+    }
   },
   filename: {
     verticalAlign: "super",
@@ -138,7 +243,7 @@ export default function NewPost(props) {
 
         <IconButton
           color="default"
-          className={classes.photoButton}
+          className={classes.photoButtons}
           component="span"
         >
           <VideocamSharpIcon
@@ -165,7 +270,11 @@ export default function NewPost(props) {
       )}
       <CardActions>
       <Box textAlign='center'>
-        <Button
+        <Button 
+          
+          className={classes.photoButtonss}
+          component="span"
+          
           style={{
             color: "white",
             border: "3px solid #2676E1",

@@ -1,6 +1,6 @@
 const read = async () => {
   try {
-    let response = await fetch("http://localhost:5000/getUser", {
+    let response = await fetch("https://twittok.herokuapp.com/getUser", {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -16,7 +16,7 @@ const read = async () => {
    const update = user => {
     return new Promise((resolve, reject) => {
   console.log("user is" , user)
-      fetch("http://localhost:5000/updateUser",
+      fetch("https://twittok.herokuapp.com/updateUser",
         {
             method: 'PUT',
             headers: {
@@ -40,7 +40,7 @@ const read = async () => {
   const changepass = user => {
     return new Promise((resolve, reject) => {
   console.log("user is" , user)
-      fetch("http://localhost:5000/changePassword",
+      fetch("https://twittok.herokuapp.com/changePassword",
         {
             method: 'PUT',
             headers: {
@@ -65,7 +65,7 @@ const read = async () => {
     console.log('post is:', post);
     console.log("entries are:" , post.entries());
     return new Promise((resolve, reject) => {
-      fetch("http://localhost:5000/uploadProfilePic", {
+      fetch("https://twittok.herokuapp.com/uploadProfilePic", {
         method: "POST",
         headers: {
           Authorization : `${localStorage.getItem("token")}`,

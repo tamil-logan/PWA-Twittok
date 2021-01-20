@@ -10,7 +10,7 @@ const signout = async () => {
 export const signin = user => {
   return new Promise((resolve, reject) => {
 
-    fetch("http://127.0.0.1:5000/login",
+    fetch("https://twittok.herokuapp.com/login",
       {
           method: 'POST',
           headers: {

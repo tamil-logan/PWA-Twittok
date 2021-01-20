@@ -58,7 +58,7 @@ export class Register extends Component {
 
   handleRegistration = (e) => {
     e.preventDefault();
-    let url = "http://127.0.0.1:5000/register";
+    let url = "https://twittok.herokuapp.com/register";
     let formData = {};
     console.log(formData);
     let data = this.state;

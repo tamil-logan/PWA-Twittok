@@ -15,15 +15,16 @@ const Menu = withRouter(({ history }) => (
     style={{ 
       background: "transparent",
       boxShadow: "none",
-      marginTop:"-1rem"
+      //marginTop:"-1rem"
     }}
     position="static"
   >
     <Toolbar>
       <Typography
-        variant="h2"
+        variant="h6"
+        
         color="inherit"
-        style={{ fontFamily: "roboto", color: "#f1f2f3",flex: 1 }}
+        style={{ fontFamily: "roboto", color: "#f1f2f3",flex: 1}}
       >
         <img src={Logo} alt="logo" className="logo"/>
         
@@ -32,8 +33,8 @@ const Menu = withRouter(({ history }) => (
       {!auth.isAuthenticated() && (
         <span>
           <Button
-            className="float"
-            color="inherit"
+            // className="float"
+            // color="inherit"
             style={{
               color: "white",
               fontWeight: "bold",
@@ -42,6 +43,7 @@ const Menu = withRouter(({ history }) => (
               border: "2px solid #FFFFFF",
               borderRadius: "20px",
               maxHeight: "2rem",
+              //paddingLeft:"2rem"
             }}
             component={Link}
             to="/"
@@ -49,6 +51,8 @@ const Menu = withRouter(({ history }) => (
             Home
           </Button>
             <Button
+            // className="float"
+            // color="inherit"
               style={{
                 color: "white",
                 fontWeight: "bold",
@@ -64,6 +68,8 @@ const Menu = withRouter(({ history }) => (
               Login
             </Button> 
           <Button
+          // className="float"
+          //  color="inherit"
             style={{
               color: "black",
               fontWeight: "bold",
@@ -72,6 +78,8 @@ const Menu = withRouter(({ history }) => (
               border: "2px solid #FFFFFF",
               borderRadius: "20px",
               maxHeight: "2rem",
+              display: "inline-block" 
+             // justify-content: "inherit"
             }}
             component={Link}
             to="/signup"

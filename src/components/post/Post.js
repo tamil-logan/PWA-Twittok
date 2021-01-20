@@ -12,13 +12,50 @@ import PostTemp from './PostTemp';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    margin: 30,
+    //margin: 30,
   },
   title: {
     color: theme.palette.openTitle,
     fontSize: "2em",
     fontWeight: "bold",
+    [theme.breakpoints.down('sm')]: {
+marginTop:"10rem",
+marginLeft:"-1rem"
+    },
   },
+  avatarss: {
+    height: "284px", 
+    width: "281px", 
+    fontSize: "80px",
+    [theme.breakpoints.down('sm')]: {
+      display: "flex !important",
+      float: "left !important",
+     //marginBottom: "-100px !important",
+      height: "150px",
+      
+      width: "150px", 
+      
+      fontSize: "2rem",
+      marginTop: "-750px !important",
+      marginLeft: "-160px",
+    },
+  },
+  username:{
+    [theme.breakpoints.down('sm')]: {
+      fontSize: "0.8rem",
+      marginTop: "-700px !important",
+      marginLeft: "3rem",
+      marginRight:"3rem"
+    },
+  },
+  email:{
+    [theme.breakpoints.down('sm')]: {
+      marginRight: "-1rem",
+      fontSize:"0.6rem"
+    },
+
+  }
+
 }));
 
 export default function Home({history}) {
@@ -29,7 +66,7 @@ export default function Home({history}) {
    const jwt = auth.isAuthenticated()
 //    console.log(jwt);
 
-   const apiURL = "http://localhost:5000/getUserPosts/" + jwt.id + "?page=1";
+   const apiURL = "https://twittok.herokuapp.com/getUserPosts/" + jwt.id + "?page=1";
 
        const fetchData = () => {
        axios.get(apiURL,{
@@ -79,24 +116,20 @@ export default function Home({history}) {
                 style={{ color: "white" }}
               >My Posts
               </Typography>
-              <PostTemp posts={posts} setPosts={setPosts}/>
+              <PostTemp style={{marginLeft:"-2rem"}} posts={posts} setPosts={setPosts}/>
             </Grid>
 
             <Grid item sm={3}>
               <Avatar
+              type="avatarss"
+              className={classes.avatarss}
                 alt={localStorage.getItem("username")}
                 src="/static/images/avatar/1.jpg"
-                style={{
-                  height: "284px",
-                  width: "281px",
-                  fontSize: "80px",
-                  border: "2px solid white",
-                }}
               />
-              <p className={classes.username}>
+              <Typography className={classes.username}>
                 {localStorage.getItem("username")}
-              </p>
-              <p className={classes.email}>{localStorage.getItem("email")}</p>
+              </Typography>
+              <Typography className={classes.email}>{localStorage.getItem("email")}</Typography>
             </Grid>
           </Grid>
         </div>

@@ -8,6 +8,12 @@ import Grid from "@material-ui/core/Grid";
 const useStyles = makeStyles((theme) => ({
   title: {
     color: theme.palette.protectedTitle,
+    // [theme.breakpoints.down('sm')]: {
+   
+    //   fontsize: "normal",
+    
+      
+    // },
   },
   error: {
     verticalAlign: "middle",
@@ -17,6 +23,29 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "1rem",
     margin: theme.spacing(44),
   },
+  rootss:{
+    position: "absolute",
+        left: "50%",
+        top: "50%",
+        transform: "translate(-50%, -50%)",
+
+    [theme.breakpoints.down('sm')]: {
+   
+      position: "absolute",
+      left: "32%",
+      top: "50%",
+    
+      
+    },
+  },
+  submitsssss:{
+    borderRadius:"23px",
+    backgroundColor:"#2676E1",
+    [theme.breakpoints.down('sm')]: {
+      fontsize: "12px",
+    },
+
+  }
 }));
 
 export default function ChangePassword() {
@@ -46,13 +75,13 @@ export default function ChangePassword() {
 
   return (
     <div
-      className={classes.root}
-      style={{
-        position: "absolute",
-        left: "50%",
-        top: "50%",
-        transform: "translate(-50%, -50%)",
-      }}
+      className={classes.rootss}
+      // style={{
+      //   position: "absolute",
+      //   left: "50%",
+      //   top: "50%",
+      //   transform: "translate(-50%, -50%)",
+      // }}
     >
       <Grid
         container
@@ -120,12 +149,12 @@ export default function ChangePassword() {
           <Button
             color="primary"
             variant="contained"
-            className={classes.submit}
+            className={classes.submitsssss}
             onClick={clickSubmit}
-            style={{
-              borderRadius:"23px",
-              backgroundColor:"#2676E1"
-            }}
+            // style={{
+            //   borderRadius:"23px",
+            //   backgroundColor:"#2676E1"
+            // }}
           >
             Save
           </Button>

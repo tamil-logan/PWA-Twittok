@@ -9,14 +9,42 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import CardHeader from "@material-ui/core/CardHeader";
 import Avatar from "@material-ui/core/Avatar";
+import Typography from "@material-ui/core/Typography";
+
 
 const useStyles = makeStyles((theme) => ({
-  media: {
-    height: 315,
-    width: 560,
+  title:{
+    [theme.breakpoints.down("sm")]: {
+      marginLeft:"-4rem"
+    }
   },
+  media: {
+    height: 350,
+    width: 560,
+    [theme.breakpoints.down("sm")]: {
+      width:250,
+      height:180,
+      marginLeft:"-4rem"
+    }
+  }, 
   cardHeader: {
-    marginLeft: "-1rem",
+    marginLeft: "2rem",
+    [theme.breakpoints.down("sm")]: {
+      display: "flex",
+      float: "left",
+      marginLeft:"-5rem"
+     
+    },
+   
+    buttons: {
+      [theme.breakpoints.down("sm")]: {
+        display: "flex",
+      float: "left",
+        // height: "15px",
+        // width: "15px",
+        marginLeft:"-5rem"
+      },
+    },
   },
 }));
 
@@ -27,7 +55,7 @@ function PostItem(props) {
   const jwt = auth.isAuthenticated();
 
   function fetchAllLikes() {
-    const apiURL = "http://localhost:5000/getPostLikes/" + post.id;
+    const apiURL = "https://twittok.herokuapp.com/getPostLikes/" + post.id;
 
     axios
       .get(apiURL, {
@@ -47,12 +75,10 @@ function PostItem(props) {
   }, []);
 
   function isLikedByTheUser() {
-    console.log(likes)
     return likes.find((e) => e.user_id === jwt.id) ? true : false;
-
   }
   //deletePost
-  const url = "http://localhost:5000/deletePost";
+  const url = "https://twittok.herokuapp.com/deletePost";
   const remove = async () => {
     await axios
       .delete(url, {
@@ -77,7 +103,7 @@ function PostItem(props) {
   //likePost
 
   const like = () => {
-    fetch("http://localhost:5000/likePost", {
+    fetch("https://twittok.herokuapp.com/likePost", {
       method: "PUT",
       headers: {
         Accept: "application/json",
@@ -94,7 +120,7 @@ function PostItem(props) {
       .catch(console.log);
   };
   const dislike = () => {
-    fetch("http://localhost:5000/likePost", {
+    fetch("https://twittok.herokuapp.com/likePost", {
       method: "PUT",
       headers: {
         Accept: "application/json",
@@ -128,22 +154,30 @@ function PostItem(props) {
         className={classes.cardHeader}
       />
       {/* <img src={'file:///Users/ahmed/Downloads/tp-backend-dev 3/post_upload/'+ post.image_filename} alt="post"/> */}
-      <img className={classes.media} src={Picture} alt="post" />
-      <h5 className="post_content ">{post.content} </h5>
+      <img
+        className={classes.media}
+        src={Picture}
+        alt="post"
+      />
+       <Typography
+                type="title"
+                className={classes.title}
+                style={{ color: "white" }}
+              >{post.content}
+              </Typography>
+      {/* <h5 className="classes.post_content"> </h5> */}
 
-      <IconButton onClick={remove} style={{ color: "white" }}>
+      <IconButton className={classes.title} onClick={remove} style={{ color: "white" }}>
         <DeleteIcon />
       </IconButton>
 
       <IconButton
         onClick={isLikedByTheUser() ? dislike : like}
-        className={classes.button}
+        className={classes.buttons}
         aria-label="Like"
         color="secondary"
       >
         {isLikedByTheUser() ? <FavoriteIcon /> : <FavoriteBorderIcon />}
-
-
       </IconButton>
       {getFilteredLikes()
         .map((e) => e.username)

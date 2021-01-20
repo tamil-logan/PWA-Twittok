@@ -267,3 +267,67 @@ margin-right: 1rem;
   background-color: #242424;
 }
 }
+@media screen and (max-width:400px){
+  .float{
+   
+    display: inline-block !important;
+    justify-content: inherit !important;
+    font-weight: normal !important;
+    font-size: .75rem !important;
+    margin-top: 2rem !important;
+    
+
+  }
+}
+
+@media screen and (max-width:400px){
+  span{
+   
+    display: flex !important;
+    justify-content: inherit!important;
+    //margin-top: .2rem;
+    
+    
+
+  }
+}
+@media screen and (max-width:400px){
+   
+  .MuiAvatar-root MuiAvatar-circle makeStyles-avatars-10 MuiAvatar-colorDefault{
+    display: flex !important;
+    float: left !important;
+    margin-bottom: 50rem !important;
+    height: 50px !important;
+    
+    width: 150px !important; 
+    
+    font-Size: 30px !important;
+    font-weight: normal !important;
+    
+}
+}
+
+// @media screen and (max-width:400px){
+   
+//   .MuiSvgIcon-root{
+//     height: 215;
+//          width: 400;
+//          margin-left: -rem;
+         
+
+//   }
+    
+// }
+
+    
+
+
+
+// @media screen and (max-width:400px){
+//   Toolbar{
+   
+//   display: flex !important;;
+//   justify-content: inherit!important;
+//   margin-top: 0;
+//   }
+// }
