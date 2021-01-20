@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect  } from "react";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import { changepass } from "./user-apis";
 import Grid from "@material-ui/core/Grid";
+import auth from "./../login/auth-helper";
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -48,13 +49,15 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function ChangePassword() {
+export default function ChangePassword({history}) {
   const classes = useStyles();
   const [values, setValues] = useState({
     old_password: "",
     password: "",
     confirmpassword: "",
   });
+  const [passPage, setPassPage] = useState(false);
+
 
   const clickSubmit = () => {
     let user = {
@@ -72,6 +75,15 @@ export default function ChangePassword() {
   const handleChange = (name) => (event) => {
     setValues({ ...values, [name]: event.target.value });
   };
+  useEffect(() => {
+    setPassPage(auth.isAuthenticated());
+    const unlisten = history.listen(() => {
+      setPassPage(auth.isAuthenticated());
+    });
+    return () => {
+      unlisten();
+    };
+  }, []);
 
   return (
     <div
@@ -83,14 +95,26 @@ export default function ChangePassword() {
       //   transform: "translate(-50%, -50%)",
       // }}
     >
-      <Grid
+     
+          {!passPage && (
+        <div>
+          <Grid container spacing={8}>
+            <Grid item xs={12}>
+              <p>You need to login to change your password!!! </p>
+            </Grid>
+          </Grid>
+        </div>
+      )}
+        {passPage && (
+       <Grid
         container
         spacing={0}
         alignItems="center"
         justify="center"
         style={{ minHeight: "80vh" }}
       >
-        <Grid item xs={6}>
+       
+        <Grid item xs={10}>
           <Typography variant="h4" className={classes.title}>
             Change Password
           </Typography>
@@ -160,6 +184,7 @@ export default function ChangePassword() {
           </Button>
         </Grid>
       </Grid>
+      )}
     </div>
   );
 }

@@ -78,8 +78,6 @@ const Menu = withRouter(({ history }) => (
               border: "2px solid #FFFFFF",
               borderRadius: "20px",
               maxHeight: "2rem",
-              display: "inline-block" 
-             // justify-content: "inherit"
             }}
             component={Link}
             to="/signup"

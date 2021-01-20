@@ -9,6 +9,8 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import { read, update, uploadProfilePic } from "./user-apis";
 import { Link } from "react-router-dom";
+import auth from "./../login/auth-helper";
+
 
 const useStyles = makeStyles((theme) => ({
   photoButton: {
@@ -26,25 +28,20 @@ const useStyles = makeStyles((theme) => ({
     // minHeight: "2.2rem",
     // minWidth: "2.2rem",
     //marginRight:"-3rem",
-    [theme.breakpoints.down('sm')]: {
-   
-     marginLeft: "2.5rem",
-    //  paddingBottom: 0,
-    //  top: 0,
-    //  right: 0,
-    //  left: 0,
-     //bottom: 2,
-     height: 10,
-     width:20,
-    //marginBottom: 10,minHeight: "2.2rem",
-    minHeight: ".4rem",
-    minWidth: ".4rem",
-    marginTop: "20px"
-    
-      
-      
-},
-
+    [theme.breakpoints.down("sm")]: {
+      marginLeft: "2.5rem",
+      //  paddingBottom: 0,
+      //  top: 0,
+      //  right: 0,
+      //  left: 0,
+      //bottom: 2,
+      height: 10,
+      width: 20,
+      //marginBottom: 10,minHeight: "2.2rem",
+      minHeight: ".4rem",
+      minWidth: ".4rem",
+      marginTop: "20px",
+    },
   },
   input: {
     display: "none",
@@ -53,20 +50,13 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(1),
     width: 300,
     margin: "normal",
-    [theme.breakpoints.down('sm')]: {
-
-    
+    [theme.breakpoints.down("sm")]: {
       width: 250,
-          marginTop: "7px !important",
-          
-           marginLeft:"-100px",
-           fontWeight: "normal",
-      },
-    
-  
-       
+      marginTop: "7px !important",
 
-
+      marginLeft: "-100px",
+      fontWeight: "normal",
+    },
   },
   submits: {
     margin: theme.spacing(3),
@@ -76,99 +66,78 @@ const useStyles = makeStyles((theme) => ({
     minWidth: "2.2rem",
     fontWeight: "bold",
     boxShadow: "none",
-    [theme.breakpoints.down('sm')]: {
-   
+    [theme.breakpoints.down("sm")]: {
       fontWeight: "normal",
 
-
-    //display:"none",
-     marginTop: "-35px !important",
-     marginLeft: "100px",
-    
-      
-},
+      //display:"none",
+      marginTop: "-35px !important",
+      marginLeft: "100px",
+    },
   },
   titles: {
     color: "white",
-              fontWeight: "bold",
-              fontSize:"35px",
-    
-    [theme.breakpoints.down('sm')]: {
-   
-              fontWeight: "normal",
-              fontSize:"25px",
-      
-      
-             marginTop: "15px !important",
-             marginLeft: "-65px",
-            
-              fontWeight: "normal",
-              
+    fontWeight: "bold",
+    fontSize: "35px",
+
+    [theme.breakpoints.down("sm")]: {
+      fontWeight: "normal",
+      fontSize: "25px",
+
+      marginTop: "15px !important",
+      marginLeft: "-65px",
+
+      fontWeight: "normal",
+    },
   },
-},
-titless: {
-  color: "white",
-  fontWeight: "bold",
-  marginTop:"2rem",
-  
-  [theme.breakpoints.down('sm')]: {
+  titless: {
+    color: "white",
+    fontWeight: "bold",
+    marginTop: "2rem",
 
-    
-    
-           marginTop: "17rem !important",
-           
-          marginLeft:"-100px",
-            fontWeight: "normal",
-            
-},
-},
-titlesss: {
-  color: "white",
-  fontWeight: "bold",
-  marginTop:"2rem",
-  
-  [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down("sm")]: {
+      marginTop: "17rem !important",
 
-    
-    
-           //marginTop: "19rem !important",
-           
-          marginLeft:"-100px",
-            fontWeight: "normal",
-            
-},
-},
-titlessss: {
-  color: "white",
-  fontWeight: "bold",
-  marginTop:"2rem",
-  
-  [theme.breakpoints.down('sm')]: {
+      marginLeft: "-100px",
+      fontWeight: "normal",
+    },
+  },
+  titlesss: {
+    color: "white",
+    fontWeight: "bold",
+    marginTop: "2rem",
 
-    
-    
-           //marginTop: "19rem !important",
-           
-          marginLeft:"-100px",
-            fontWeight: "normal",
-            
-},
-},
-// textFieldss:{
-//   marginRight: theme.spacing(1),
-//     width: 300,
-//     margin: "normal",
+    [theme.breakpoints.down("sm")]: {
+      //marginTop: "19rem !important",
 
-//   [theme.breakpoints.down('sm')]: {
+      marginLeft: "-100px",
+      fontWeight: "normal",
+    },
+  },
+  titlessss: {
+    color: "white",
+    fontWeight: "bold",
+    marginTop: "2rem",
 
-    
-    
-//     marginTop: "19rem !important",
-    
-//    marginLeft:"-80px",
-//      fontWeight: "normal",
-// },
-// },
+    [theme.breakpoints.down("sm")]: {
+      //marginTop: "19rem !important",
+
+      marginLeft: "-100px",
+      fontWeight: "normal",
+    },
+  },
+  // textFieldss:{
+  //   marginRight: theme.spacing(1),
+  //     width: 300,
+  //     margin: "normal",
+
+  //   [theme.breakpoints.down('sm')]: {
+
+  //     marginTop: "19rem !important",
+
+  //    marginLeft:"-80px",
+  //      fontWeight: "normal",
+  // },
+  // },
   root: {
     marginLeft: "2rem",
   },
@@ -183,31 +152,30 @@ titlessss: {
     marginBottom: "3rem",
   },
   avatarss: {
-    height: "284px", 
-    width: "281px", 
+    height: "284px",
+    width: "281px",
     fontSize: "80px",
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down("sm")]: {
       // display: "flex",
       // float: "center",
-     //marginBottom: "-100px !important",
+      //marginBottom: "-100px !important",
       height: "150px",
-      
-      width: "150px", 
-      
+
+      width: "150px",
+
       fontSize: "30px",
       marginTop: "70px !important",
       marginLeft: "70px",
     },
-
   },
-  floatsss:{
+  floatsss: {
     color: "#2676E1",
     fontWeight: "bold",
     backgroundColor: "transparent",
     marginLeft: "7rem",
     maxHeight: "2rem",
     fontSize: "1rem",
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down("sm")]: {
       color: "#2676E1",
       fontWeight: "normal",
       backgroundColor: "transparent",
@@ -215,21 +183,18 @@ titlessss: {
       maxHeight: "2rem",
       fontSize: "1rem",
     },
-
-
   },
-  submitssss:{
+  submitssss: {
     marginLeft: "14.5rem",
-              backgroundColor: "#2676E1",
-              borderRadius:"23px",
-              [theme.breakpoints.down('sm')]: {
-                marginLeft: "5.5rem",
-              },
-
-  }
+    backgroundColor: "#2676E1",
+    borderRadius: "23px",
+    [theme.breakpoints.down("sm")]: {
+      marginLeft: "5.5rem",
+    },
+  },
 }));
 
-export default function Profile() {
+export default function Profile({history}) {
   const classes = useStyles();
 
   const [values, setValues] = useState({
@@ -238,6 +203,8 @@ export default function Profile() {
     image: "",
     email: "",
   });
+  const [profilePage, setProfilePage] = useState(false);
+
 
   useEffect(() => {
     read().then((data) => {
@@ -252,6 +219,16 @@ export default function Profile() {
         });
       }
     });
+  }, []);
+
+  useEffect(() => {
+    setProfilePage(auth.isAuthenticated());
+    const unlisten = history.listen(() => {
+      setProfilePage(auth.isAuthenticated());
+    });
+    return () => {
+      unlisten();
+    };
   }, []);
 
   const uploadPicture = () => {
@@ -297,10 +274,20 @@ export default function Profile() {
 
   return (
     <div className={classes.root}>
+      {!profilePage && (
+        <div>
+          <Grid container spacing={8}>
+            <Grid item xs={12}>
+              <p>You need to login to edit your Profile </p>
+            </Grid>
+          </Grid>
+        </div>
+      )}
+      {profilePage && (
       <Grid container spacing={10}>
         <Grid item xs={4}>
           <Avatar
-          className={classes.avatarss}
+            className={classes.avatarss}
             alt={localStorage.getItem("username")}
             src="/static/images/avatar/1.jpg"
             //style={{ height: "284px", width: "281px", fontSize: "80px" }}
@@ -326,7 +313,7 @@ export default function Profile() {
                   backgroundColor: "white",
                   minHeight: "2.2rem",
                   minWidth: "2.2rem",
-                  marginRight:"-3rem"
+                  marginRight: "-3rem",
                 }}
               />
             </IconButton>
@@ -444,14 +431,14 @@ export default function Profile() {
           <Button
             className="floatsss"
             color="inherit"
-             style={{
-               color: "#2676E1",
-            //   fontWeight: "bold",
-            //   backgroundColor: "transparent",
+            style={{
+              color: "#2676E1",
+              //   fontWeight: "bold",
+              //   backgroundColor: "transparent",
               //  marginLeft: "7rem",
               //  maxHeight: "2rem",
-            //   fontSize: "1rem",
-             }}
+              //   fontSize: "1rem",
+            }}
             component={Link}
             to="/changepass"
           >
@@ -473,6 +460,7 @@ export default function Profile() {
           </Button>
         </Grid>
       </Grid>
+       )}
     </div>
   );
 }
