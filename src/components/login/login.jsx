@@ -17,8 +17,8 @@ const useStyles = makeStyles(theme => ({
 export function Login(props) {
   const classes = useStyles()
   const [values, setValues] = useState({
-    username: 'Saeed',
-    password: 'pass',
+    username: '',
+    password: '',
     error: '',
     redirectToReferrer: false,
     errorMessage: ''
