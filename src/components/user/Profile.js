@@ -10,6 +10,7 @@ import Button from "@material-ui/core/Button";
 import { read, update, uploadProfilePic } from "./user-apis";
 import { Link } from "react-router-dom";
 import auth from "./../login/auth-helper";
+import Display from "../../display.jpeg";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -289,8 +290,7 @@ export default function Profile({history}) {
           <Avatar
             className={classes.avatarss}
             alt={localStorage.getItem("username")}
-            src="/static/images/avatar/1.jpg"
-            //style={{ height: "284px", width: "281px", fontSize: "80px" }}
+            src={Display}
           />
           <input
             accept="image/*"
@@ -442,7 +442,7 @@ export default function Profile({history}) {
             component={Link}
             to="/changepass"
           >
-            Change Password >>
+            Change Password 
           </Button>
           <br />
           <Button

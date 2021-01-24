@@ -6,6 +6,8 @@ import Avatar from "@material-ui/core/Avatar";
 import Typography from "@material-ui/core/Typography";
 import axios from 'axios';
 import PostTemp from './PostTemp';
+import Display from "../../display.jpeg";
+
 
 
 
@@ -124,7 +126,7 @@ export default function Home({history}) {
               type="avatarss"
               className={classes.avatarss}
                 alt={localStorage.getItem("username")}
-                src="/static/images/avatar/1.jpg"
+                src={Display}
               />
               <Typography className={classes.username}>
                 {localStorage.getItem("username")}

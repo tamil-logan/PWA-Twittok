@@ -16,6 +16,8 @@ import auth from "./../login/auth-helper";
 import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { AirlineSeatLegroomNormal } from "@material-ui/icons";
+import Display from "../../display.jpeg";
+
 
 const theme = createMuiTheme({
   typography: {
@@ -190,7 +192,7 @@ export default function Newsfeed() {
             <Avatar
               className={classes.avatars}
               alt={jwt.username}
-              src="/static/images/avatar/1.jpg"
+              src={Display}
               //style={{ height: "284px", width: "281px", fontSize: "80px" }}
             />
           </div>
